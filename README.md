@@ -1,4 +1,4 @@
-# Migrated
+# Angularjs 2 Angular upgrade demo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
 
@@ -26,3 +26,8 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Refrence
+
+[directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation](https://www.softwarearchitekt.at/post/2017/07/14/directly-upgrading-from-angularjs-1-x-to-angular-by-skipping-preparation.aspx)
+[ngUpgrade-without-preparation src](https://github.com/manfredsteyer/ngUpgrade-without-preparation)
