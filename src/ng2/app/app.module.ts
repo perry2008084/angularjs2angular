@@ -1,9 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { UpgradeModule, downgradeComponent } from '@angular/upgrade/static';
 import { AppComponent } from './app.component';
 import { Ng2DemoComponent } from "./ng2-demo.component";
 import { phoneServiceProvider } from 'ng2/app/phone.service';
+import { RouterModule, UrlHandlingStrategy } from '@angular/router';
+
+export class CustomHandlingStrategy implements UrlHandlingStrategy {
+  shouldProcessUrl(url) {
+    return url.toString().startsWith("/ng2-route") || url.toString() === '/';
+  }
+
+  extract(url) { return url; }
+  merge(url, whole) { return url; }
+}
 
 declare var angular: any;
 
@@ -20,10 +30,26 @@ angular.module('phonecatApp')
   ],
   imports: [
     BrowserModule,
-    UpgradeModule
+    UpgradeModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'ng2-route'
+      },
+      {
+        path: 'ng2-route',
+        component: Ng2DemoComponent
+      }
+    ],
+    {
+      useHash: true
+    }
+    )
   ],
   providers: [
-    phoneServiceProvider
+    phoneServiceProvider,
+    { provide: UrlHandlingStrategy, useClass: CustomHandlingStrategy }
   ],
   entryComponents: [
     Ng2DemoComponent
