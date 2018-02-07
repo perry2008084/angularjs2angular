@@ -27,12 +27,14 @@ angular.module('phonecatApp')
   ],
   entryComponents: [
     Ng2DemoComponent
-  ]
-  //bootstrap: [AppComponent]
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
+  /*
   constructor(private upgrade: UpgradeModule) { }
   ngDoBootstrap() {
     this.upgrade.bootstrap(document.body, ['phonecatApp'], { strictDi: true});
   }
+  */
 }
